@@ -142,6 +142,10 @@ body {
   transition: all 0.3s ease;
   font-family: var(--font-body);
   font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
@@ -162,6 +166,10 @@ body {
   transition: all 0.3s ease;
   font-family: var(--font-body);
   font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
 }
 .btn-secondary:hover {
   background: rgba(255, 245, 230, 0.12);
@@ -180,6 +188,10 @@ body {
   transition: all 0.3s ease;
   font-family: var(--font-body);
   font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
 }
 .btn-accent:hover {
   transform: translateY(-2px);
@@ -313,3 +325,40 @@ body {
   animation: slide-up 0.3s ease-out;
   max-width: 400px;
 }
+
+/* ── Config-driven floor plans ───────────────────────────── */
+.floor-plan-shell {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, rgba(44, 28, 20, 0.9), rgba(25, 15, 11, 0.95));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 18px 50px rgba(0,0,0,0.22);
+  padding: 1.25rem;
+}
+.floor-plan-header { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
+.floor-plan-kicker { display:flex; align-items:center; gap:.4rem; margin:0; color:#f7d9a6; font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.floor-plan-title { margin:.35rem 0 0; color:#fffaf2; font-size:1.15rem; font-weight:700; }
+.floor-plan-subtitle { margin:.25rem 0 0; color:#9e948a; font-size:.75rem; }
+.floor-select-wrap { position:relative; display:flex; align-items:center; color:#d9c6b3; }
+.floor-select { appearance:none; min-width:6.8rem; border:1px solid rgba(255,255,255,.14); border-radius:.65rem; background:#281912; color:#f8f1e8; padding:.55rem 2rem .55rem .7rem; font-size:.8rem; }
+.floor-select-wrap svg { position:absolute; right:.6rem; pointer-events:none; }
+.floor-tabs { display:flex; gap:.45rem; margin:1.05rem 0 .8rem; }
+.floor-tab { border:1px solid rgba(255,255,255,.1); border-radius:.6rem; background:transparent; color:#a9a09a; padding:.42rem .65rem; font-size:.75rem; transition:.2s ease; }
+.floor-tab:hover, .floor-tab-active { border-color:rgba(245,209,145,.45); background:rgba(245,209,145,.1); color:#ffe8bf; }
+.floor-plan-stage { position:relative; aspect-ratio:1.55/1; overflow:hidden; border:1px solid rgba(255,255,255,.11); border-radius:1rem; background:linear-gradient(145deg,#1d1511,#332218); box-shadow:inset 0 0 50px rgba(0,0,0,.38), 0 10px 25px rgba(0,0,0,.24); transform:perspective(850px) rotateX(1.4deg); transform-origin:center top; }
+.floor-plan-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px); background-size:8% 12%; opacity:.65; }
+.floor-plan-wall { position:absolute; z-index:1; background:linear-gradient(135deg,#6f5542,#3b291e); box-shadow:0 3px 8px rgba(0,0,0,.35); }
+.floor-plan-wall-top { top:0; left:0; right:0; height:3%; }
+.floor-plan-wall-right { top:0; bottom:0; right:0; width:2.5%; }
+.floor-plan-object { position:absolute; z-index:2; display:flex; min-width:1.9rem; overflow:hidden; align-items:center; justify-content:center; gap:.2rem; border:1px solid; border-radius:.45rem; padding:.18rem; color:#f5eee8; font-size:clamp(.6rem, 1vw, .8rem); font-weight:700; line-height:1; box-shadow:0 5px 10px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.12); transition:transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+.floor-plan-object-label { overflow:hidden; max-width:100%; text-overflow:ellipsis; white-space:nowrap; }
+.floor-plan-table-label { font-size:clamp(.65rem, 1.15vw, .85rem); letter-spacing:.03em; }
+.floor-plan-object small { display:flex; align-items:center; gap:.08rem; font-size:clamp(.45rem, .9vw, .6rem); font-weight:700; opacity:.88; }
+.floor-plan-object-selectable { cursor:pointer; }
+.floor-plan-object-selectable:hover { transform:translateY(-2px) scale(1.04) !important; box-shadow:0 10px 16px rgba(0,0,0,.3), 0 0 0 1px rgba(255,255,255,.3); }
+.floor-plan-object-selected { border-color:#ffe1a8 !important; background:rgba(245, 177, 77, .3) !important; box-shadow:0 0 0 2px rgba(254, 215, 170, .7), 0 10px 16px rgba(0,0,0,.28) !important; }
+.floor-plan-counter { border-radius:.55rem .55rem .2rem .2rem; }
+.floor-plan-feature { border-style:dashed; }
+.floor-plan-legend { display:flex; flex-wrap:wrap; gap:.55rem .85rem; margin-top:1rem; color:#a9a09a; font-size:.7rem; }
+.floor-plan-legend span { display:inline-flex; align-items:center; gap:.28rem; }
+.availability-dot { width:.42rem; height:.42rem; border-radius:50%; background:#86efac; box-shadow:0 0 8px rgba(134,239,172,.8); }
+@media (max-width: 640px) { .floor-plan-shell { padding:1rem; } .floor-plan-header { align-items:flex-start; } .floor-select-wrap { display:none; } .floor-tabs { overflow-x:auto; padding-bottom:.15rem; } .floor-tab { white-space:nowrap; } .floor-plan-stage { aspect-ratio:1.08/1; transform:none; } .floor-plan-object { min-width:1.55rem; padding:.12rem; } .floor-plan-object-label { display:none; } .floor-plan-object small { display:none; } .floor-plan-table-label { font-size:.62rem; } }

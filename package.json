@@ -1,27 +1,38 @@
 {
-  "name": "booking-cafe",
+  "name": "brewbook",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "oxlint .",
+    "typecheck": "tsc --noEmit",
+    "test:smoke": "playwright test --project=chromium",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-helmet-async": "^3.0.0",
-    "react-router-dom": "^7.18.4"
+    "drizzle-orm": "^0.45.4",
+    "lucide-react": "^1.63.0",
+    "next": "^16.4.3",
+    "postgres": "^3.4.9",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.7",
-    "@vitejs/plugin-react": "^6.1.1",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "dotenv": "^18.0.9",
+    "drizzle-kit": "^0.31.11",
     "oxlint": "^1.81.0",
     "tailwindcss": "^4.3.3",
-    "vite": "^8.3.0"
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
   }
 }
